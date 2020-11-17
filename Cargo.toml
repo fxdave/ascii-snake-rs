@@ -1,0 +1,13 @@
+[package]
+name = "rust-snake"
+version = "0.1.0"
+authors = ["David Biró <david.biro@stylersonline.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.7.3"
+termion = "1.5.5"
+mockall = "0.8.3"
+linked_list_macro = { path = "linked_list_macro", version = "*" }
