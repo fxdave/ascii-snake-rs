@@ -11,6 +11,7 @@ use std::sync::mpsc::{Receiver, Sender};
 use termion::event::Key;
 use termion::input::TermRead;
 use termion::raw::IntoRawMode;
+
 enum UpdateReason {
     Control(Key),
     Time,
