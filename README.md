@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- POSIX compilant terminal
+- POSIX compliant terminal
 - Unicode support for `["▲","◄","►","▼","♥"]` characters
   - I know, it is not ascii
 
