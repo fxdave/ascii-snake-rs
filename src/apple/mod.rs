@@ -25,7 +25,7 @@ impl<T: IsFreePos> Spawn<T> for Apple {
         while {
             x = thread_rng().gen_range(1, boundary.x - 2);
             y = thread_rng().gen_range(1, boundary.y - 2);
-            position_checker.is_free_pos(Pos { x, y })
+            !position_checker.is_free_pos(Pos { x, y })
         } {}
 
         self.pos = Pos { x, y }
@@ -61,7 +61,7 @@ mod test {
         let mut mock_is_free_pos = MockIsFreePos::new();
         let size = Size { x: 10, y: 10 };
 
-        mock_is_free_pos.expect_is_free_pos().times(1).returning(|_| false);
+        mock_is_free_pos.expect_is_free_pos().returning(|_| true);
 
         // WHEN
         one.spawn(&size, &mock_is_free_pos);

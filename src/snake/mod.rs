@@ -154,7 +154,7 @@ impl Draw for Snake {
 
 impl IsFreePos for Snake {
     fn is_free_pos(&self, pos: Pos) -> bool {
-        self.body.iter().find(|x| x.1 == pos).is_some()
+        self.body.iter().find(|x| x.1 == pos).is_none()
     }
 }
 
