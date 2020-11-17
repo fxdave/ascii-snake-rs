@@ -10,4 +10,8 @@
 
 ## How to try
 
-Install rust, then `cargo run`
+Install rust, then `cargo run --release`
+
+## How to test
+
+`cargo test`
