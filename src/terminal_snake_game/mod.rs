@@ -46,7 +46,7 @@ impl TerminalSnakeGame {
         });
 
         // thread for stdin events
-        let stdin_tx = tx.clone();
+        let stdin_tx = tx;
         std::thread::spawn(move || {
             let stdin = std::io::stdin();
             for c in stdin.keys() {
@@ -55,9 +55,8 @@ impl TerminalSnakeGame {
                         println!("Stdin is down");
                         break;
                     }
-                    match r {
-                        Key::Char('q') => break,
-                        _ => {}
+                    if let Key::Char('q') = r {
+                        break;
                     }
                 }
             }

@@ -32,7 +32,7 @@ impl Map {
 
 impl IsFreePos for Map {
     fn is_free_pos(&self, pos: &Vec2) -> bool {
-        match self.content.get((&pos).y).and_then(|row| row.get((&pos).x)) {
+        match self.content.get(pos.y).and_then(|row| row.get(pos.x)) {
             Some(MapElement::Block) => false,
             Some(MapElement::Empty) => true,
             None => panic!("Cell not found on {:?}", &pos),
@@ -72,11 +72,11 @@ impl MapTrait for Map {
     }
 
     fn as_draw(&self) -> &dyn Draw {
-        return self;
+        self
     }
 
     fn as_is_free_pos(&self) -> &dyn IsFreePos {
-        return self;
+        self
     }
 }
 

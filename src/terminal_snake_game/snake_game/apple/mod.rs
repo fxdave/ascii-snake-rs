@@ -35,7 +35,7 @@ impl Food for Apple {
     }
 
     fn get_pos(&self) -> &Vec2 {
-        return &self.pos;
+        &self.pos
     }
 
     fn as_draw(&self) -> &dyn Draw {

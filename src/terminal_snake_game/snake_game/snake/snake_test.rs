@@ -44,7 +44,7 @@ fn it_can_detect_self_eating_step() {
     };
 
     assert!(snake.is_self_eating_step(&Directed(Direction::Down, Vec2 { x: 5, y: 3 })));
-    assert!(snake.is_self_eating_step(&Directed(Direction::Down, Vec2 { x: 3, y: 5 })) == false);
+    assert!(!snake.is_self_eating_step(&Directed(Direction::Down, Vec2 { x: 3, y: 5 })));
 }
 
 #[test]
@@ -56,12 +56,9 @@ fn it_can_step() {
         y: snake.get_head_pos().y,
     };
 
-    match snake.step() {
-        Err(SelfEatingStepError) => {
-            assert!(false, "initial step shouldn't be self eating");
-        }
-        _ => (),
-    };
+    if let Err(SelfEatingStepError) = snake.step() {
+        unreachable!( "initial step shouldn't be self eating");
+    }
 
     let pos_after = Vec2 {
         x: snake.get_head_pos().x,
